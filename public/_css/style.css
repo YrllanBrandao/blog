@@ -1,0 +1,74 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(236, 235, 234);
+}
+
+#formulario-pergunta{
+    margin-top: 5vh;
+}
+#card-receive, #card-questions, #card-login, .card-question, .card-article{
+    margin: 5vh auto 0 auto;
+
+}
+.card-home{
+    width:60vw;
+    min-width: 300px;
+}
+.btn-login{
+    margin-top: 20px;
+    
+}
+
+.active-link{
+    color:#fff;
+    text-decoration: none;
+}
+.link{
+    color:rgb(93, 150, 158)
+}
+.active-link:hover{
+    color:rgba(rgb(11, 103, 131), green, blue, alpha)
+}
+.nav-bar{
+    padding:10px;
+    display:flex;
+    justify-content: normal;
+    gap:30px;
+}
+.card{
+    padding:10px;
+}
+.article-blog{
+    padding:5px;
+
+}
+
+.btn-width{
+    width: 14%;
+    margin-bottom: 10px;
+}
+
+.v-align-center{
+    align-items: center;
+    padding:15px;
+    
+}
+
+.row{
+    justify-content: space-between;
+    padding:15px;
+}
+
+
+/*alerta */
+.alert-danger{
+    display:none;
+}
+
+.nav-bar-flex{
+ gap:30px;
+}

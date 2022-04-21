@@ -1,0 +1,66 @@
+<%- include('../../partials/head.ejs')%>
+
+<body>
+        <%- include("../../partials/navbar/navbar-categories.ejs")%>
+    
+        <div class="container">
+            <div class="container d-flex flex-column align-items-center">
+                <h2>Categories</h2>
+    <a href="/admin/categories/new" class="btn btn-success" style="width: 30%;">Create category</a>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Slug</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-categories">
+                    <%
+                    categories.forEach(categoria =>{%>
+                        <tr>
+                            <th><%- categoria.id %></th>
+                            <th> <%- categoria.title%> </th>
+                            <th> <%- categoria.slug%> </th>
+                            <th class="d-flex gap-2">
+                                
+                                  
+                                    <a href="/admin/categories/edit/<%= categoria.id%>" class="btn btn-primary">Edit</a> 
+                       
+                                
+                                <form action="/admin/categories/delete" method="post" onsubmit="confirmacao(event, this)"> 
+                                <input type="hidden" name="id" value="<%- categoria.id%>">
+                                <button class="btn btn-danger" >Delete</button>
+                              
+
+                            </form> </th>
+                            
+    
+                        </tr>
+
+                    <%})
+
+                   %>
+                </tbody>
+            </table>
+        </div>
+
+</body>
+
+<script>
+
+    function confirmacao(event, form){
+       
+            event.preventDefault()
+        const confirmed = confirm("Are you sure?")
+
+
+        confirmed ? form.submit() : " ";
+        
+           
+    }
+
+</script>
+<%- include('../../partials/footer.ejs')%>

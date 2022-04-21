@@ -1,0 +1,26 @@
+<div class="navbar nav navbar-dark bg-primary nav-bar fixed-top">
+    <a href="/" class="navbar-brand">Blog</a>
+
+            <a href="/"  class="active-link btn btn-primary">Home</a>
+            <div class="btn-group dropend d-flex nav-bar-flex">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </button>
+                <ul class="dropdown-menu">
+                  <!-- Dropdown menu links -->
+                  <%
+
+                    category.forEach((categoria)=>{%>
+
+                        <a href="/categories/<%= categoria.slug%>" class="dropdown-item"><%=categoria.title%></a>
+
+                   <%})
+
+                  %>
+                  
+                  
+                </ul>
+
+                <a href="/login" class="btn btn-success auto-mg-left">Login</a>
+              </div>
+</div>

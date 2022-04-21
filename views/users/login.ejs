@@ -1,0 +1,32 @@
+<%- include("../partials/head.ejs") %>
+<body>
+    <%- include("../partials/navbar.ejs") %>
+   <br>
+   <div class="container card-article">
+      
+     <div class="card">
+         <div class="card-header">
+             login
+         </div>
+         <div class="card-body">
+            <form action="/authenticate" method="post" >
+                
+        
+                <label for="" class="form-label">E-mail</label>
+                <input type="email" name="email" required placeholder="email@domain.com" class="form-control">
+        
+                <label for="" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" >
+                <hr>
+                
+
+                <button type="submit" class="btn btn-success">Login</button>
+             </form>
+         </div>
+     </div>
+      
+   </div>
+</body>
+
+
+<%- include("../partials/footer.ejs") %>

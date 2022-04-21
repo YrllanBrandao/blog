@@ -1,0 +1,45 @@
+<%- include("../../partials/head.ejs") %>
+<body>
+  <%- include("../../partials/navbar/navbar-categories") %>
+   <br>
+   <div class="container card-article">
+      
+     <table class="table table-success table-striped">
+        <thead>
+              <th scope="col">#</th>
+              <th scope="col">TITLE</th>
+              <th scope="col">SLUG</th>
+              <th scope="col">CATEGORY</th>
+              <th scope="col">ACTIONS</th>
+        </thead>
+        <tbody>
+            <%
+            articles.forEach((article)=>{%>
+
+                <tr>
+                    <td><%=article.id%></td>
+                <td><%=article.title%></td>
+                <td><%=article.slug%></td>
+                <td><%=article.category.title%></td>
+                <td>
+                    
+                    
+                    <form action="/admin/articles/delete" method="post" onsubmit="confirmSubmit(event, this)"> 
+                        <a href="/admin/articles/edit/<%=article.id%>" class="btn btn-primary">EDIT</a>
+                        <input type="hidden" name="id" value="<%=article.id%>">
+                        <button class="btn btn-danger" type="submit">DELETE</button>
+                    </form>
+                </td>
+                </tr>
+
+
+            <%})
+                %>
+        </tbody>
+     </table>
+      
+   </div>
+</body>
+
+
+<%- include("../../partials/footer.ejs") %>

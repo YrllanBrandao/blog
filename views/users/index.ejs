@@ -1,0 +1,53 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  
+   <br>
+   <div class="container card-article">
+    
+     <div class="card">
+        
+    
+            
+        
+        
+         <div class="card-header">
+             <a href="/admin/users/create" class="btn btn-success">Register User</a>
+         </div>
+         <div class="card-body">
+            <table class="table">
+                <thead>
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Email</th>
+                    
+                </thead>
+                <tbody>
+                    <%
+                    users.forEach((user)=>{%>
+
+                        <tr>
+                            <td>
+                                <%=user.id%>
+                            </td>
+                            <td>
+                                <%=user.user%>
+                            </td>
+                            <td>
+                                <%=user.email%>
+                            </td>
+                        </tr>
+
+                    <%})
+
+                    %>
+                </tbody>
+
+            </table>
+         </div>
+     </div>
+      
+   </div>
+</body>
+
+
+<%- include("../partials/footer.ejs") %>

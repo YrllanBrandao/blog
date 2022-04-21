@@ -1,0 +1,67 @@
+<%- include("../../partials/head.ejs")%>
+<body>
+   
+    <div class="container">
+        
+        <div class="card card-article">
+
+            <div class="card-header">
+                <h2 class="red">New Article</h2>
+            </div>
+            <div class="card-body ">
+                <form action="/admin/articles/save" method="post">
+                    <label for="title-article">Title</label>
+                    <input type="text" name="title" placeholder="Enter a title" class="form-control" required  > 
+                    <textarea name="body"  cols="30" rows="10" class="form-control"  id="tinyArea" placeholder="E.g. this is  a Example"></textarea>
+
+                    <label class="form-label">Categories</label>
+                    <select  name="category" class="form-control">
+                        <%
+                            categories.forEach((category)=>{%>
+
+                                <option  value="<%= category.id%>"><%=category.title%></option>
+
+                            <%})
+                        
+                        %>
+                        
+                            </select>
+                    <br>
+                   <button class="btn btn-success" type="submit">done</button>
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+
+</body>
+<%- include("../../partials/footer.ejs")%>
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    
+    tinymce.init({
+                language: "pt_BR",
+                selector: "#tinyArea",
+                plugins: [
+                    'advlist',
+                    'autolink',
+                    'link',
+                    'image',
+                    'lists',
+                    'preview',
+                    'searchreplace',
+                    'wordcount',
+                    'fullscreen',
+                    'insertdatetime',
+                    'media',
+                    'save',
+                    'table',
+                    'emoticons',
+                ]
+            })
+</script>
+

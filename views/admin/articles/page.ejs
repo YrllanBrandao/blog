@@ -1,0 +1,62 @@
+<%- include("../../partials/head.ejs") %>
+<body>
+    <%- include("../../partials/navbar.ejs") %>
+   <br>
+   <div class="container card-article">
+      
+     
+      <br>
+      <article class="article">
+        <hr>
+
+        <%
+        result.article.rows.forEach((article)=>{%>
+
+           <div class="card">
+              <div class="card-header">
+                    <h2><%= article.title%></h2>
+              </div>
+              <div class="card-body">
+ 
+                
+                <a href="/articles/<%=article.slug%>" class="btn btn-success">Read</a>
+              </div>
+           </div>
+           <hr>
+       <% })
+        %>
+
+
+        <div class="row d-flex  ">
+            
+            <%
+                if(page-1 === 1 || page-1 > 1)
+                {%>
+                    <a href="/articles/page/<%=page-1%>" class="btn btn-success btn-width">previous</a>
+                <%}
+                else if(page-1 === 0)
+                {
+                    %>
+                    <a href="/" class="btn btn-success btn-width">previous</a>
+                    <%
+                }
+                else{
+                    %>
+                    <a href="/articles/page/<%=page-1%>" class="btn btn-success btn-width disabled">previous</a>
+                    <%
+                }
+                if(result.next)
+                {%>
+                    <a href="/articles/page/<%=page+1%>" class="btn btn-success btn-width">next</a>
+               <%}
+            %>
+            
+            
+            
+        </div>
+      </article>
+   </div>
+</body>
+
+
+<%- include("../../partials/footer.ejs") %>

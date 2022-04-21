@@ -1,0 +1,52 @@
+<%- include("partials/head.ejs") %>
+<body>
+   <%- include("partials/navbar.ejs") %>
+   <br>
+   <div class="container card-article">
+      
+      <div class="card card-article">
+         <div class="jumbotron">
+            <h1 class="display-4"></h1>Hello, welcome to my blog!</h1>
+            <p class="lead">this is my first blog made with javascript, follow me on linkedin: <a href="https://www.linkedin.com/in/yrllanbrandao/" target="_blank" class="link" >Yrllan Brandão</a></p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="https://www.linkedin.com/in/yrllanbrandao/" target="_blank" role="button">Follow me</a>
+          </div>
+
+         
+      </div>
+      <br>
+      <article class="">
+         <h1>Mais recentes</h1>
+        <hr>
+
+        <%
+        articles.forEach((article)=>{%>
+
+           <div class="card">
+              <div class="card-header">
+                    <h2><%= article.title%></h2>
+              </div>
+              <div class="card-body">
+ 
+                
+                <a href="/articles/<%=article.slug%>" class="btn btn-success">Read</a>
+              </div>
+           </div>
+           <hr>
+       <% })
+        %>
+
+
+       
+
+        <div class="row d-flex justify-content-end v-align-center">
+         <a href="/articles/page/2" class="btn btn-success btn-width">next</a>
+         <hr>
+      </div>
+      </article>
+      
+   </div>
+</body>
+
+
+<%- include("partials/footer.ejs") %>
